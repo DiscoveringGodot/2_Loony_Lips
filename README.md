@@ -33,7 +33,6 @@ Put wildcards into our story text Merge the new array into the story
 #### After watching (learning outcomes)…
 Put all of our plugin words into an array Put wildcards into our story text Merge the new array into the story
 
-
 ### 3 RichTextLabel - Showing Text to the Player
 #### In this video (objectives)…
 1 Import assets into Godot
@@ -42,3 +41,13 @@ Put all of our plugin words into an array Put wildcards into our story text Merg
 
 #### After watching (learning outcomes)…
 Learn how to resize the player's viewport, import assets into Godot, create a background texture, use ``RichTextLabel`` nodes and control them from the script.
+
+### 4 LineEdit - Text From The Player
+#### In this video (objectives)…
+1 Create a LineEdit Node
+2 Create a TextureButton Node
+3 Connect Signals
+4 Move between functions
+
+#### After watching (learning outcomes)…
+Take the player's input and change the displayed text to match it.
