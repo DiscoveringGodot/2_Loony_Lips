@@ -61,3 +61,12 @@ Take the player's input and change the displayed text to match it.
 
 #### After watching (learning outcomes)…
 Prompt the player to enter the right kind of word and inster the player's inputs into the story
+
+### 6 queue_free() and reload_current_scene()
+#### In this video (objectives)…
+1 remove a node from the scene tree with queue_free()
+2 restart the game with reload_current_scene()
+3 learn to use ``return`` to get information from a function to the one that called it
+
+#### After watching (learning outcomes)…
+Allow the player to restart the game once the story's done!
