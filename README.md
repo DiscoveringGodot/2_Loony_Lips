@@ -1,4 +1,4 @@
-# Discovering Godot - The Game Engine You've Been Waiting For
+﻿# Discovering Godot - The Game Engine You've Been Waiting For
 ## Section 2 - Loony Lips
 This is GameDev.tv's guide to the free and open source Godot game engine.  Learn the free to use, free to modify, free to create engine with one of the most successful online game develeopment educational groups out there.
 
@@ -51,3 +51,13 @@ Learn how to resize the player's viewport, import assets into Godot, create a ba
 
 #### After watching (learning outcomes)…
 Take the player's input and change the displayed text to match it.
+
+### 5 Appending Arrays and "If" conditions
+#### In this video (objectives)…
+1 Append player input to an array
+2 Use one array's size to find a position in another array
+3 Prompt the player based on how many words they've already entered
+4 Use an if/else condition to check if the player needs to be asked another prompt
+
+#### After watching (learning outcomes)…
+Prompt the player to enter the right kind of word and inster the player's inputs into the story
