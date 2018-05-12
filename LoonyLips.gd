@@ -23,7 +23,7 @@ var template = {
 var current_story
 
 func _ready():
-	randomize()
+	randomize()  # TODO Yann necessary?
 	current_story = template.values() [randi() % template.size()]
 	$Blackboard/StoryText.text = ("Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\nCan I have " + current_story.prompt[player_words.size()] + ", please?")
 	$Blackboard/TextBox.text = ""

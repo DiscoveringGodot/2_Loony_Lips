@@ -19,6 +19,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 [node name="LoonyLips" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+someParam = "Donkey"
 
 [node name="Blackboard" type="TextureRect" parent="." index="0"]
 
@@ -87,7 +88,6 @@ mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
-text = "TextBox"
 focus_mode = 2
 context_menu_enabled = true
 placeholder_alpha = 0.6
