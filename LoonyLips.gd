@@ -17,7 +17,9 @@ func load_stories():
 	# TODO consdier checking for file existence
 	var stories_file = File.new()
 	stories_file.open("stories.json", File.READ)
-	template = parse_json(stories_file.get_line())
+	var text = stories_file.get_as_text()
+	template = parse_json(text)
+	stories_file.close()
 
 func _on_TextureButton_pressed():
 	if is_story_done():
