@@ -14,11 +14,6 @@ public class StoryText : RichTextLabel
         BbcodeText = ("Hello blackboard");
     }
 
-    public void SetText(string Text)
-    {
-        BbcodeText = (Text);
-    }
-
 //    public override void _Process(float delta)
 //    {
 //        // Called every frame. Delta is time since last frame.
