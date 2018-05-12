@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-
-public class LoonyLips : Node2D
+public class StoryText : RichTextLabel
 {
     // Member variables here, example:
     // private int a = 2;
@@ -12,9 +11,12 @@ public class LoonyLips : Node2D
     {
         // Called every time the node is added to the scene.
         // Initialization here
-		GD.Print("Hello from VS Code");
-        StoryText storyText = FindNode("StoryText") as StoryText;
-        storyText.SetText("Inter-node comms are go");
+        BbcodeText = ("Hello blackboard");
+    }
+
+    public void SetText(string Text)
+    {
+        BbcodeText = (Text);
     }
 
 //    public override void _Process(float delta)
