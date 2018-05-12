@@ -1,7 +1,6 @@
 using Godot;
 using System;
 
-
 public class LoonyLips : Node2D
 {
     [Export]  // Similar to [SerializeField] in Unity
