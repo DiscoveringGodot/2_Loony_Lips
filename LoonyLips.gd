@@ -1,24 +1,22 @@
 extends Node2D
 
 var player_words = [] # the words the player chooses
-
-var template = {}
-
 var current_story
 
 func _ready():
-	load_stories()
-	randomize()  # TODO Yann necessary?
-	current_story = template.values() [randi() % template.size()]
+	load_ramdom_story()
 	$Blackboard/StoryText.text = ("Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\nCan I have " + current_story.prompt[player_words.size()] + ", please?")
 	$Blackboard/TextBox.text = ""
 
-func load_stories():
+func load_ramdom_story():
 	# TODO consdier checking for file existence
 	var stories_file = File.new()
 	stories_file.open("stories.json", File.READ)
 	var text = stories_file.get_as_text()
-	template = parse_json(text)
+	var stories = {}
+	stories = parse_json(text)
+	randomize()
+	current_story = stories.values() [randi() % stories.size()]
 	stories_file.close()
 
 func _on_TextureButton_pressed():
