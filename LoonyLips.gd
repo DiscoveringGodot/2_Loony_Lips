@@ -6,12 +6,12 @@ var strings  # every word displayed to user, in chosen language
 
 func _ready():
 	set_random_story()
-	strings = get_from_json('other_strings.json')
-	$Blackboard/StoryText.text = strings['intro_text']  # find_node("StoryText").text
+	strings = get_from_json("other_strings.json")
+	$Blackboard/StoryText.text = strings["intro_text"]  # find_node("StoryText").text
 	prompt_player()
 
 func set_random_story():
-	var stories = get_from_json('stories.json')
+	var stories = get_from_json("stories.json")
 	randomize()
 	current_story = stories[randi() % stories.size()]
 
@@ -32,16 +32,16 @@ func _on_TextureButton_pressed():
 
 func _on_TextBox_text_entered(new_text):
 	player_words.append(new_text)
-	$Blackboard/TextBox.text = ''
-	$Blackboard/StoryText.text = ''
+	$Blackboard/TextBox.text = ""
+	$Blackboard/StoryText.text = ""
 	check_player_word_length()
 
 func is_story_done():
 	return player_words.size() == current_story.prompt.size()
 
 func prompt_player():
-	var next_prompt = current_story['prompt'][player_words.size()]
-	$Blackboard/StoryText.text += (strings['prompt'] % next_prompt)
+	var next_prompt = current_story["prompt"][player_words.size()]
+	$Blackboard/StoryText.text += (strings["prompt"] % next_prompt)
 
 func check_player_word_length():
 	if is_story_done():
@@ -51,7 +51,7 @@ func check_player_word_length():
 
 func tell_story():
 	$Blackboard/StoryText.text = current_story.story % player_words
-	$Blackboard/TextureButton/ButtonLabel.text = strings['again']
+	$Blackboard/TextureButton/ButtonLabel.text = strings["again"]
 	end_game()
 
 func end_game():
