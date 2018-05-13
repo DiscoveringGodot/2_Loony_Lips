@@ -2,12 +2,12 @@ extends Node2D
 
 var player_words = []   # the words the player chooses
 var current_story
-
+var strings = []  # every word displayed to user, in chosen language
 
 func _ready():
 	set_random_story()
-	$Blackboard/StoryText.text = ("Welcome to Loony Lips!\n\n")
-	$Blackboard/StoryText.text += ("We're going to tell a story and have a lovely time!\n\n")
+	load_all_strings()
+	$Blackboard/StoryText.text = strings['intro_text']
 	prompt_player(false)
 
 
@@ -16,15 +16,19 @@ func set_random_story():
 	randomize()
 	current_story = stories.values()[randi() % stories.size()]
 
-	
+
+func load_all_strings():
+	strings = get_dict_from_json('other_strings.json')
+
+
 func get_dict_from_json(filename):
-	var stories_file = File.new()
-	stories_file.open(filename, File.READ)  # assumes file exists
-	var text = stories_file.get_as_text()
+	var file = File.new()
+	file.open(filename, File.READ)  # assumes file exists
+	var text = file.get_as_text()
 	var dict = {}
 	dict = parse_json(text)
 	return dict
-	stories_file.close()
+	file.close()
 
 
 func _on_TextureButton_pressed():
@@ -37,7 +41,7 @@ func _on_TextureButton_pressed():
 
 func _on_TextBox_text_entered(new_text):
 	player_words.append(new_text)
-	$Blackboard/TextBox.text = ""
+	$Blackboard/TextBox.text = ''
 	check_player_word_length()
 
 
@@ -47,9 +51,9 @@ func is_story_done():
 
 func prompt_player(clear_first):
 	if clear_first:
-		$Blackboard/StoryText.text = ("")
+		$Blackboard/StoryText.text = ('')
 	var next_input = current_story.prompt[player_words.size()]
-	$Blackboard/StoryText.text += ("Can I have %s please?" % next_input)
+	$Blackboard/StoryText.text += (strings['prompt'] % next_input)
 
 
 func check_player_word_length():
@@ -61,7 +65,7 @@ func check_player_word_length():
 
 func tell_story():
 	$Blackboard/StoryText.text = current_story.story % player_words
-	$Blackboard/TextureButton/ButtonLabel.text = "Again!"
+	$Blackboard/TextureButton/ButtonLabel.text = strings['again']
 	end_game()
 
 
