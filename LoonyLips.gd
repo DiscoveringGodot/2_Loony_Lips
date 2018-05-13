@@ -5,20 +5,25 @@ var current_story
 
 
 func _ready():
-	load_ramdom_story()
+	set_random_story()
 	$Blackboard/StoryText.text = ("Welcome to Loony Lips!\n\n")
 	$Blackboard/StoryText.text += ("We're going to tell a story and have a lovely time!\n\n")
 	prompt_player(false)
 
 
-func load_ramdom_story():
-	var stories_file = File.new()
-	stories_file.open("stories.json", File.READ)  # assumes file exists
-	var text = stories_file.get_as_text()
-	var stories = {}
-	stories = parse_json(text)
+func set_random_story():
+	var stories = get_dict_from_json('stories.json')
 	randomize()
 	current_story = stories.values()[randi() % stories.size()]
+
+	
+func get_dict_from_json(filename):
+	var stories_file = File.new()
+	stories_file.open(filename, File.READ)  # assumes file exists
+	var text = stories_file.get_as_text()
+	var dict = {}
+	dict = parse_json(text)
+	return dict
 	stories_file.close()
 
 
