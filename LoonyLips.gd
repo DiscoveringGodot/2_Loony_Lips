@@ -43,7 +43,8 @@ func is_story_done():
 func prompt_player(clear_first):
 	if clear_first:
 		$Blackboard/StoryText.text = ("")
-	$Blackboard/StoryText.text += ("Can I have " + current_story.prompt[player_words.size()] + ", please?")
+	var next_input = current_story.prompt[player_words.size()]
+	$Blackboard/StoryText.text += ("Can I have %s please?" % next_input)
 
 
 func check_player_word_length():
