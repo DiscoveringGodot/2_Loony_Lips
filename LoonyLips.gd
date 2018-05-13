@@ -7,27 +7,26 @@ var strings = []  # every word displayed to user, in chosen language
 func _ready():
 	set_random_story()
 	load_all_strings()
-	$Blackboard/StoryText.text = strings['intro_text']
+	$Blackboard/StoryText.text = strings['intro_text']  # find_node("StoryText").text
 	prompt_player(false)
 
 
 func set_random_story():
-	var stories = get_dict_from_json('stories.json')
+	var stories = get_from_json('stories.json')
 	randomize()
-	current_story = stories.values()[randi() % stories.size()]
+	current_story = stories[randi() % stories.size()]
 
 
 func load_all_strings():
-	strings = get_dict_from_json('other_strings.json')
+	strings = get_from_json('other_strings.json')
 
 
-func get_dict_from_json(filename):
+func get_from_json(filename):
 	var file = File.new()
 	file.open(filename, File.READ)  # assumes file exists
 	var text = file.get_as_text()
-	var dict = {}
-	dict = parse_json(text)
-	return dict
+	var data = parse_json(text)
+	return data
 	file.close()
 
 
@@ -52,7 +51,7 @@ func is_story_done():
 func prompt_player(clear_first):
 	if clear_first:
 		$Blackboard/StoryText.text = ('')
-	var next_input = current_story.prompt[player_words.size()]
+	var next_input = current_story['prompt'][player_words.size()]
 	$Blackboard/StoryText.text += (strings['prompt'] % next_input)
 
 

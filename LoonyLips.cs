@@ -1,20 +1,29 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class LoonyLips : Node2D
 {
-    [Export]  // Similar to [SerializeField] in Unity
-    string someParam = "Hello";
+    Dictionary<List<string>, string> currentStory = new Dictionary<List<string>, string>();
 
     public override void _Ready()
     {
         // Called every time the node is added to the scene.
         // Initialization here
-		GD.Print("Hello from VS Code");
-        StoryText storyText = FindNode("StoryText") as StoryText;
-        storyText.Text = "Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\nCan I have XXX please?";
-        // TODO sort out whitespacing
-        // TODO consider all text in separate file
+		GD.Print("Hello from C#");  // print to Console
+        SetRandomStory();
+        // load_all_strings()
+        (FindNode("StoryText") as RichTextLabel).Text = "Boom";
+        // prompt_player(false)
+    }
+
+    private void SetRandomStory()
+    {
+        List<String> prompts = new List<String>();
+        prompts.Add("a noun (thing)");
+        prompts.Add("a verb");
+        string story = "Once upon a time";
+        currentStory.Add(prompts, story);
     }
 
 //    public override void _Process(float delta)
