@@ -1,8 +1,8 @@
 extends Node2D
 
-var player_words = []   # the words the player chooses
+var player_words = []  # needs initialising so we can measure size when empty
 var current_story
-var strings = []  # every word displayed to user, in chosen language
+var strings  # every word displayed to user, in chosen language
 
 func _ready():
 	set_random_story()
