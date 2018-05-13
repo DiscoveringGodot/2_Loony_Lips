@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"csharp.referencesCodeLens.enabled": false
+		"csharp.referencesCodeLens.enabled": false,
+		"editor.renderWhitespace": "boundary"
 	}
 }

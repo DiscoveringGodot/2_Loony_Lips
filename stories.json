@@ -1,6 +1,6 @@
 {  
-    "story1":{  
-        "prompt":[  
+    "story1":{
+        "prompt":[
             "a person's name",
             "a thing",
             "a feeling",
@@ -9,8 +9,8 @@
         ],
         "story":"Once upon a time %s ate a %s and felt very %s. It was a %s day for all good %s."
     },
-    "story2":{  
-        "prompt":[  
+    "story2":{
+        "prompt":[
             "a noun (a thing)",
             "an adjective (a description word)",
             "a person's name",
@@ -21,8 +21,8 @@
         ],
         "story":"A poem.\n\nI wish I was a %s, %s as can be,\nThen you could call me %s,\nAnd I would finally be free.\n\nThen I would visit %s\nAnd %s all day long,\nAnd I would call you %s,\nAnd teach %s my song."
     },
-    "story3":{  
-        "prompt":[  
+    "story3":{
+        "prompt":[
             "a person's name",
             "the name of a place",
             "the plural of a noun (there's going to be more than one of these)",
@@ -31,8 +31,8 @@
         ],
         "story":"Dear %s,\n\nI hope this letter finds you well. I have spent the past three weeks in %s researching the history of %s for my new book. I miss you %s, and whenever I see a %s I think of you."
     },
-    "story4":{  
-        "prompt":[  
+    "story4":{
+        "prompt":[
             "an adjective",
             "a person's name",
             "a place",
@@ -43,8 +43,8 @@
         ],
         "story":"Once upon a time, a %s hero called %s was sent to %s, to defeat a %s %s. He did so, returned home to %s and lived %s ever after"
     },
-    "story5":{  
-        "prompt":[  
+    "story5":{
+        "prompt":[
             "a noun",
             "an adjective (a description word)",
             "another noun",
@@ -55,8 +55,8 @@
         ],
         "story":"The ultimate pizza recipe.\n\nMix one packet of %s with three spoonfuls of flour. Knead the dough for 3 minutes until %s. Roll the dough flat on a %s and sprinkle one pinch of %s and three cups of %s %s. Bake for 17 minutes at a high heat, then remove from the oven and %s!"
     },
-    "story6":{  
-        "prompt":[  
+    "story6":{
+        "prompt":[
             "an adjective (e.g. fast, high)",
             "a noun (a thing)",
             "an adverb (a word ending in -ly)",
