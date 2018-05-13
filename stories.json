@@ -57,8 +57,12 @@
     },
     "story6":{  
         "prompt":[  
-            ""
+            "an adjective (e.g. fast, high)",
+            "a noun (a thing)",
+            "an adverb (a word ending in -ly)",
+            "an adjective (a description word)",
+            "a noun (a thing)"
         ],
-        "story":""
+        "story":"In the beginnning there was %s %s. The story progressed %s. Finally there was a %s %s."
     }
 }

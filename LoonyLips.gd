@@ -17,7 +17,7 @@ func load_ramdom_story():
 	var stories = {}
 	stories = parse_json(text)
 	randomize()
-	current_story = stories.values() [randi() % stories.size()]
+	current_story = stories.values()[randi() % stories.size()]
 	stories_file.close()
 
 func _on_TextureButton_pressed():
