@@ -70,3 +70,12 @@ Prompt the player to enter the right kind of word and inster the player's inputs
 
 #### After watching (learning outcomes)…
 Allow the player to restart the game once the story's done!
+
+### 7 Dictionaries - Adding a Story Template
+#### In this video (objectives)…
+1 Create dictionaries 
+2 Nest Dictionaries 
+3 use ''randomize()'' and ''randi()'' to generate random integers
+
+#### After watching (learning outcomes)…
+Create a template system for Loony Lips and pick random stories from the template by unleashing the awesome power of dictionaries.
