@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://LoonyLips.gd" type="Script" id=1]
-[ext_resource path="res://gfx/blackboard.jpg" type="Texture" id=2]
-[ext_resource path="res://gfx/Feltpen.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://StoryText.cs" type="Script" id=4]
-[ext_resource path="res://TextBox.cs" type="Script" id=5]
-[ext_resource path="res://gfx/blue_button11.png" type="Texture" id=6]
-[ext_resource path="res://gfx/blue_button12.png" type="Texture" id=7]
+[ext_resource path="res://LoonyLips.cs" type="Script" id=1]
+[ext_resource path="res://Images/blackboard.jpg" type="Texture" id=2]
+[ext_resource path="res://Fonts/Feltpen.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Images/blue_button11.png" type="Texture" id=4]
+[ext_resource path="res://Images/blue_button12.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -66,7 +64,6 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 4 )
 _sections_unfolded = [ "BBCode", "custom_fonts" ]
 
 [node name="TextBox" type="LineEdit" parent="Blackboard" index="1"]
@@ -93,7 +90,6 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 5 )
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="TextureButton" type="TextureButton" parent="Blackboard" index="2"]
@@ -117,8 +113,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="ButtonLabel" type="RichTextLabel" parent="Blackboard/TextureButton" index="0"]

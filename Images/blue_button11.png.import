@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blackboard.jpg-7f3edf5a3877e62c353ad93f2576d35a.stex"
+path="res://.import/blue_button11.png-62d90395368dc460b497b73b01d629c7.stex"
 
 [deps]
 
-source_file="res://gfx/blackboard.jpg"
-source_md5="07761e78e6b3ee3e6c9b7ccc9ad575d4"
+source_file="res://Images/blue_button11.png"
+source_md5="ed444af2a99c19bace4e0638624c77f1"
 
-dest_files=[ "res://.import/blackboard.jpg-7f3edf5a3877e62c353ad93f2576d35a.stex" ]
-dest_md5="efdf8ba2d278482e0947e0de7f6050f7"
+dest_files=[ "res://.import/blue_button11.png-62d90395368dc460b497b73b01d629c7.stex" ]
+dest_md5="3d4f7543f99a5e06ec9fb038ecc34473"
 
 [params]
 
