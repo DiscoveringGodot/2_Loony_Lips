@@ -7,7 +7,7 @@
     "some things"
 ],
 "story":
-    "Once upon a time %s ate a %s and felt very %s. It was a %s day for all good %s."
+    "Once upon a time {0} ate a {1} and felt very {2}. It was a {3} day for all good {4}."
 },
 {
 "prompt":[
@@ -20,7 +20,7 @@
     "another person's name"
     ],
 "story":
-    "A poem.\n\nI wish I was a %s, %s as can be,\nThen you could call me %s,\nAnd I would finally be free.\n\nThen I would visit %s\nAnd %s all day long,\nAnd I would call you %s,\nAnd teach %s my song."
+    "A poem.\n\nI wish I was a {0}, {1} as can be,\nThen you could call me {2},\nAnd I would finally be free.\n\nThen I would visit {3}\nAnd {4} all day long,\nAnd I would call you {5},\nAnd teach {6} my song."
 },
 {
 "prompt":[
@@ -31,7 +31,7 @@
     "a noun"
     ],
 "story":
-    "Dear %s,\n\nI hope this letter finds you well. I have spent the past three weeks in %s researching the history of %s for my new book. I miss you %s, and whenever I see a %s I think of you."
+    "Dear {0},\n\nI hope this letter finds you well. I have spent the past three weeks in {1} researching the history of {2} for my new book. I miss you {3}, and whenever I see a {4} I think of you."
 },
 {
 "prompt":[
@@ -44,7 +44,7 @@
     "an adverb (a word ending in -ly)"
     ],
     "story":
-    "Once upon a time, a %s hero called %s was sent to %s, to defeat a %s %s. He did so, returned home to %s and lived %s ever after"
+    "Once upon a time, a {0} hero called {1} was sent to {2}, to defeat a {3} {4}. He did so, returned home to {5} and lived {6} ever after"
 },
 {
 "prompt":[
@@ -56,7 +56,7 @@
     "one more noun",
     "a verb"
     ],
-"story":"The ultimate pizza recipe.\n\nMix one packet of %s with three spoonfuls of flour. Knead the dough for 3 minutes until %s. Roll the dough flat on a %s and sprinkle one pinch of %s and three cups of %s %s. Bake for 17 minutes at a high heat, then remove from the oven and %s!"
+"story":"The ultimate pizza recipe.\n\nMix one packet of {0} with three spoonfuls of flour. Knead the dough for 3 minutes until {1}. Roll the dough flat on a {2} and sprinkle one pinch of {3} and three cups of {4} {5}. Bake for 17 minutes at a high heat, then remove from the oven and {6}!"
 },
 {
 "prompt":[
@@ -67,5 +67,5 @@
     "a noun (a thing)"
     ],
 "story":
-    "In the beginnning there was %s %s. The story progressed %s. Finally there was a %s %s."
+    "In the beginnning there was {0} {1}. The story progressed {2}. Finally there was a {3} {4}."
 }]

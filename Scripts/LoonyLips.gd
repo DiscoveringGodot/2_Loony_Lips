@@ -40,8 +40,8 @@ func is_story_done():
 	return player_words.size() == current_story.prompt.size()
 
 func prompt_player():
-	var next_prompt = current_story["prompt"][player_words.size()]
-	$Blackboard/StoryText.text += (strings["prompt"] % next_prompt)
+	var next_prompt = [current_story["prompt"][player_words.size()]]
+	$Blackboard/StoryText.text += strings["prompt"].format(next_prompt)
 
 func check_player_word_length():
 	if is_story_done():
@@ -50,7 +50,7 @@ func check_player_word_length():
 		prompt_player()
 
 func tell_story():
-	$Blackboard/StoryText.text = current_story.story % player_words
+	$Blackboard/StoryText.text = current_story.story.format(player_words)
 	$Blackboard/TextureButton/ButtonLabel.text = strings["again"]
 	end_game()
 

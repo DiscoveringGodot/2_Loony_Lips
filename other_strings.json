@@ -2,7 +2,7 @@
 "intro_text":
     "Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\n",
 "prompt":
-    "Can I have %s please?",
+    "Can I have {0} please?",
 "again":
     "Again!"
 }
