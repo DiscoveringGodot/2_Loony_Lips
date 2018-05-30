@@ -148,8 +148,10 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="text_entered" from="Blackboard/TextBox" to="." method="_on_TextBox_text_entered"]
 
-[connection signal="pressed" from="Blackboard/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="text_entered" from="Blackboard/TextBox" to="." method="OnTextEntry"]
 
 [connection signal="pressed" from="Blackboard/TextureButton" to="." method="OnButtonPressed"]
+
+[connection signal="pressed" from="Blackboard/TextureButton" to="." method="_on_TextureButton_pressed"]
 
 

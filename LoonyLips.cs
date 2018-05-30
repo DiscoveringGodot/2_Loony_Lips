@@ -15,6 +15,7 @@ public class LoonyLips : Node2D
     // private instance variables for state
     Story currentStory;
     Dictionary<string, string> strings = new Dictionary<string, string>();
+    List<String> playerWords = new List<string>();
 
     // cached references for readability
     RichTextLabel storyText;
@@ -29,7 +30,13 @@ public class LoonyLips : Node2D
 
     public void OnButtonPressed()  // should we have a leading _ style-wise?
     {
-        storyText.Text = "Button pressed";
+        var userInput = (FindNode("TextBox") as LineEdit).GetText();  // TODO remove string reference?
+        storyText.Text = userInput; 
+    }
+
+    public void OnTextEntry(string entry)  // Note no need to bind in Signals
+    {
+        storyText.Text = entry;
     }
 
     private void ShowIntro()
