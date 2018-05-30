@@ -19,30 +19,45 @@ public class LoonyLips : Node2D
 
     // cached references for readability
     RichTextLabel storyText;
+    LineEdit textEntryBox;
 
     // messages, then public methods, then private methods...
     public override void _Ready()
     {
+        CacheComponents();
         ShowIntro();
         SetRandomStory();
         PromptPlayer();
     }
 
+    void CacheComponents()
+    {
+        // TODO find alternative to string referencing
+        storyText = FindNode("StoryText") as RichTextLabel;
+        textEntryBox = FindNode("TextBox") as LineEdit;
+    }
+
     public void OnButtonPressed()  // should we have a leading _ style-wise?
     {
-        var userInput = (FindNode("TextBox") as LineEdit).GetText();  // TODO remove string reference?
-        storyText.Text = userInput; 
+        // TODO if story done
+        var userInput = textEntryBox.GetText();  // TODO remove string reference?
+        OnTextEntry(userInput);
     }
 
     public void OnTextEntry(string entry)  // Note no need to bind in Signals
     {
-        storyText.Text = entry;
+        playerWords.Add(entry);
+        textEntryBox.SetText("");
+        storyText.SetText("");
+        foreach (string word in playerWords)
+        {
+            storyText.Text += word;
+        }
     }
 
     private void ShowIntro()
     {
         strings = SetStrings();
-        storyText = FindNode("StoryText") as RichTextLabel;  // TODO find alternative to string referencing
         storyText.Text = strings["intro_text"];
     }
 
