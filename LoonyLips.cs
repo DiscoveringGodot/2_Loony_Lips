@@ -27,6 +27,11 @@ public class LoonyLips : Node2D
         PromptPlayer();
     }
 
+    public void OnButtonPressed()  // should we have a leading _ style-wise?
+    {
+        storyText.Text = "Button pressed";
+    }
+
     private void ShowIntro()
     {
         strings = SetStrings();
