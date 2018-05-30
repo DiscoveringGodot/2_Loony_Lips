@@ -34,7 +34,10 @@ func _on_TextBox_text_entered(new_text):
 	player_words.append(new_text)
 	$Blackboard/TextBox.text = ""
 	$Blackboard/StoryText.text = ""
-	check_player_word_length()
+	if is_story_done():
+		tell_story()
+	else:
+		prompt_player()
 
 func is_story_done():
 	return player_words.size() == current_story.prompt.size()
@@ -42,12 +45,6 @@ func is_story_done():
 func prompt_player():
 	var next_prompt = [current_story["prompt"][player_words.size()]]
 	$Blackboard/StoryText.text += strings["prompt"].format(next_prompt)
-
-func check_player_word_length():
-	if is_story_done():
-		tell_story()
-	else:
-		prompt_player()
 
 func tell_story():
 	$Blackboard/StoryText.text = current_story.story.format(player_words)
