@@ -18,9 +18,9 @@ public class LoonyLips : Node2D
     List<String> playerWords = new List<string>();
 
     // cached references for readability
+    RichTextLabel buttonLabel;
     RichTextLabel storyText;
     LineEdit textEntryBox;
-    RichTextLabel buttonLabel;
 
     // messages, then public methods, then private methods...
     public override void _Ready()
@@ -31,30 +31,25 @@ public class LoonyLips : Node2D
         PromptPlayer();
     }
 
-    void CacheComponents()
+    private void CacheComponents()
     {
         // TODO find alternative to string referencing
+        buttonLabel = FindNode("ButtonLabel") as RichTextLabel;
         storyText = FindNode("StoryText") as RichTextLabel;
         textEntryBox = FindNode("TextBox") as LineEdit;
-        buttonLabel = FindNode("ButtonLabel") as RichTextLabel;
     }
 
-    public void OnButtonPressed()  // should we have a leading _ style-wise?
+    public void OnButtonPressed()
     {
-        if (IsStoryDone())
+        if (IsStoryDone())  // Button is now play again
         {
             GetTree().ReloadCurrentScene();
         }
         else
         {
-            var userInput = textEntryBox.GetText();  // TODO remove string reference?
+            var userInput = textEntryBox.GetText();
             OnTextEntry(userInput);
         }
-    }
-
-    bool IsStoryDone()
-    {
-        return playerWords.Count == currentStory.prompts.Count;
     }
 
     public void OnTextEntry(string entry)  // Note no need to bind in Signals
@@ -92,6 +87,12 @@ public class LoonyLips : Node2D
         }
         buttonLabel.SetText(strings["again"]);
         EndGame();
+    }
+
+
+    private bool IsStoryDone()
+    {
+        return playerWords.Count == currentStory.prompts.Count;
     }
 
     private Dictionary<string, string> SetStrings()
