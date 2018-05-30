@@ -39,9 +39,20 @@ public class LoonyLips : Node2D
 
     public void OnButtonPressed()  // should we have a leading _ style-wise?
     {
-        // TODO if story done
-        var userInput = textEntryBox.GetText();  // TODO remove string reference?
-        OnTextEntry(userInput);
+        if (IsStoryDone())
+        {
+            GetTree().ReloadCurrentScene();
+        }
+        else
+        {
+            var userInput = textEntryBox.GetText();  // TODO remove string reference?
+            OnTextEntry(userInput);
+        }
+    }
+
+    bool IsStoryDone()
+    {
+        return playerWords.Count == currentStory.prompts.Count;
     }
 
     public void OnTextEntry(string entry)  // Note no need to bind in Signals
@@ -49,9 +60,13 @@ public class LoonyLips : Node2D
         playerWords.Add(entry);
         textEntryBox.SetText("");
         storyText.SetText("");
-        foreach (string word in playerWords)
+        if (IsStoryDone())
         {
-            storyText.Text += word;
+            TellStory();
+        }
+        else
+        {
+            PromptPlayer();
         }
     }
 
@@ -63,8 +78,17 @@ public class LoonyLips : Node2D
 
     private void PromptPlayer()
     {
-        string nextPrompt = "a something";
+        string nextPrompt = currentStory.prompts[playerWords.Count];
         storyText.Text += String.Format(strings["prompt"], nextPrompt); 
+    }
+
+    private void TellStory()
+    {
+        foreach (string word in playerWords)
+        {
+            storyText.Text += " " + word;
+        }
+        EndGame();
     }
 
     private Dictionary<string, string> SetStrings()
@@ -88,5 +112,10 @@ public class LoonyLips : Node2D
             "some things"
         });
         currentStory.story = "Once upon a time %s ate a %s and felt very %s. It was a %s day for all good %s.";
+    }
+
+    private void EndGame()
+    {
+        textEntryBox.QueueFree();
     }
 }
