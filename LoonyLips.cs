@@ -29,7 +29,7 @@ public class LoonyLips : Node2D
 
     private void ShowIntro()
     {
-        strings = GetFromJSON();
+        strings = SetStrings();
         storyText = FindNode("StoryText") as RichTextLabel;  // TODO find alternative to string referencing
         storyText.Text = strings["intro_text"];
     }
@@ -40,12 +40,12 @@ public class LoonyLips : Node2D
         storyText.Text += String.Format(strings["prompt"], nextPrompt); 
     }
 
-    private Dictionary<string, string> GetFromJSON()
+    private Dictionary<string, string> SetStrings()
     {
         // TODO actually get from JSON!
-        Dictionary<string, string> strings = new Dictionary<string, string>();
         strings["intro_text"] = "Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\n";
         strings["prompt"] = "Can I have {0} please ?";  // Note difference in syntax
+        strings["again"] = "Again!";  // Note difference in syntax
         return strings;
     }
 
