@@ -81,10 +81,7 @@ public class LoonyLips : Node2D
 
     private void TellStory()
     {
-        foreach (string word in playerWords)
-        {
-            storyText.Text += " " + word;
-        }
+        storyText.Text = String.Format(currentStory.story, playerWords.ToArray());
         buttonLabel.SetText(strings["again"]);
         EndGame();
     }
@@ -115,7 +112,7 @@ public class LoonyLips : Node2D
             "another feeling",
             "some things"
         });
-        currentStory.story = "Once upon a time %s ate a %s and felt very %s. It was a %s day for all good %s.";
+        currentStory.story = "Once upon a time {0} ate a {1} and felt very {2}. It was a {3} day for all good {4}.";
     }
 
     private void EndGame()
