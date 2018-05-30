@@ -20,6 +20,7 @@ public class LoonyLips : Node2D
     // cached references for readability
     RichTextLabel storyText;
     LineEdit textEntryBox;
+    RichTextLabel buttonLabel;
 
     // messages, then public methods, then private methods...
     public override void _Ready()
@@ -35,6 +36,7 @@ public class LoonyLips : Node2D
         // TODO find alternative to string referencing
         storyText = FindNode("StoryText") as RichTextLabel;
         textEntryBox = FindNode("TextBox") as LineEdit;
+        buttonLabel = FindNode("ButtonLabel") as RichTextLabel;
     }
 
     public void OnButtonPressed()  // should we have a leading _ style-wise?
@@ -88,6 +90,7 @@ public class LoonyLips : Node2D
         {
             storyText.Text += " " + word;
         }
+        buttonLabel.SetText(strings["again"]);
         EndGame();
     }
 
@@ -116,6 +119,6 @@ public class LoonyLips : Node2D
 
     private void EndGame()
     {
-        textEntryBox.QueueFree();
+        textEntryBox.QueueFree();  // Remove text box
     }
 }
