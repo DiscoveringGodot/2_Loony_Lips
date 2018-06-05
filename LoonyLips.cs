@@ -94,6 +94,11 @@ public class LoonyLips : Node2D
 
     private Dictionary<string, string> SetStrings()
     {
+        var file = new File();
+        file.Open("stories.json", 1);  // Mode 1 is read only
+        string jsonString = file.GetAsText();
+        var parseResult = JSON.Parse(jsonString);
+
         // TODO actually get from JSON!
         strings["intro_text"] = "Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\n";
         strings["prompt"] = "Can I have {0} please ?";  // Note difference in syntax
