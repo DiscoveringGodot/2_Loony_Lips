@@ -132,16 +132,19 @@ public class LoonyLips : Node2D
         int storyIndex = rnd.Next(0, stories.Length);
         var randomStory = stories.GetValue(storyIndex) as Dictionary<System.Object, System.Object>;
         
-        var tempPrompts = new List<string>();
-        var prompts = randomStory["prompt"] as Array;
-        foreach (System.Object o in prompts)
-        {
-            tempPrompts.Add(o as string);
-            GD.Print(o as string);
-        }
+        currentStory.prompts = GetPrompts(randomStory);
+        currentStory.story = randomStory["story"] as string;
+    }
 
-        currentStory.prompts = tempPrompts;
-        currentStory.story = "Once upon a time {0} ate a {1} and felt very {2}. It was a {3} day for all good {4}.";
+    private List<string> GetPrompts(Dictionary<System.Object, System.Object> story)
+    {
+        var promptsList = new List<string>();
+        var promptObjects = story["prompt"] as Array;
+        foreach (System.Object o in promptObjects)
+        {
+            promptsList.Add(o as string);
+        }
+        return promptsList;
     }
 
     private void EndGame()
