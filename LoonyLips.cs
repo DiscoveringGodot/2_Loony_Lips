@@ -92,6 +92,18 @@ public class LoonyLips : Node2D
 
     private void SetStringsFromFile(string localFileName)
     {
+        var parseResult = GetJSONParseResult(localFileName);
+        var dict = parseResult.Result as Dictionary<System.Object, System.Object>;
+
+        foreach (var entry in dict)
+        {
+            var keyString = entry.Key as string;
+            strings[keyString] = dict[keyString] as string;
+        }
+    }
+
+    private JSONParseResult GetJSONParseResult(string localFileName)
+    {
         var file = new File();
         file.Open(localFileName, 1);  // Mode 1 is read only
         string text = file.GetAsText();
@@ -102,22 +114,12 @@ public class LoonyLips : Node2D
         if (parseResult.Error != 0)
         {
             GD.Print(localFileName + " parse error");
+            return null;
         }
         else
         {
             GD.Print(localFileName + " read OK");
-            SetStringsFromParseResult(parseResult);
-        }
-    }
-
-    private void SetStringsFromParseResult(JSONParseResult parseResult)
-    {
-        var parsed = parseResult.Result as Dictionary<System.Object, System.Object>;
-
-        foreach (var entry in parsed)
-        {
-            var keyString = entry.Key as string;
-            strings[keyString] = parsed[keyString] as string;
+            return parseResult;
         }
     }
 
