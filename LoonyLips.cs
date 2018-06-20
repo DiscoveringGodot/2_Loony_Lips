@@ -1,8 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-// using System.IO;
-// using System.Text;
 
 struct Story
 {
@@ -69,7 +67,7 @@ public class LoonyLips : Node2D
 
     private void ShowIntro()
     {
-        SetStringsFromFile("stories.json");
+        SetStringsFromFile("other_strings.json");
         storyText.Text = strings["intro_text"];
     }
 
@@ -96,27 +94,33 @@ public class LoonyLips : Node2D
     {
         var file = new File();
         file.Open(localFileName, 1);  // Mode 1 is read only
-        string jsonString = file.GetAsText();
+        string text = file.GetAsText();
         file.Close();
-        var parseResult = JSON.Parse(jsonString);
+
+        var parseResult = JSON.Parse(text);
 
         if (parseResult.Error != 0)
         {
-            GD.Print("JSON Parse Error");
+            GD.Print(localFileName + " parse error");
         }
         else
         {
-            GD.Print("Strings JSON OK");
-            ReadStrings();
+            GD.Print(localFileName + " read OK");
+            SetStringsFromParseResult(parseResult);
         }
     }
 
-    private void ReadStrings()
+    private void SetStringsFromParseResult(JSONParseResult parseResult)
     {
-        strings["intro_text"] = "Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\n";
-        strings["prompt"] = "Can I have {0} please ?";
-        strings["again"] = "Again!";
+        var parsed = parseResult.Result as Dictionary<System.Object, System.Object>;
+
+        // TODO iterate over dictionary rather than repeating self
+        strings["intro_text"] = parsed["intro_text"] as string;
+        strings["prompt"] = parsed["prompt"] as string;
+        strings["again"] = parsed["again"] as string;
     }
+
+    // TODO separate function for reading Stores
 
     private void SetRandomStory()
     {
