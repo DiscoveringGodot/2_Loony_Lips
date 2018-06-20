@@ -114,10 +114,11 @@ public class LoonyLips : Node2D
     {
         var parsed = parseResult.Result as Dictionary<System.Object, System.Object>;
 
-        // TODO iterate over dictionary rather than repeating self
-        strings["intro_text"] = parsed["intro_text"] as string;
-        strings["prompt"] = parsed["prompt"] as string;
-        strings["again"] = parsed["again"] as string;
+        foreach (var entry in parsed)
+        {
+            var keyString = entry.Key as string;
+            strings[keyString] = parsed[keyString] as string;
+        }
     }
 
     // TODO separate function for reading Stores
