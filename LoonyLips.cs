@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+// using System.IO;
+// using System.Text;
 
 struct Story
 {
@@ -10,8 +12,6 @@ struct Story
 
 public class LoonyLips : Node2D
 {
-    // configuration parameters, consider SO
-
     // private instance variables for state
     Story currentStory;
     Dictionary<string, string> strings = new Dictionary<string, string>();
@@ -33,7 +33,7 @@ public class LoonyLips : Node2D
 
     private void CacheComponents()
     {
-        // TODO find alternative to string referencing
+        // for more refactorability use "if c extends DesiredClass" or Groups
         buttonLabel = FindNode("ButtonLabel") as RichTextLabel;
         storyText = FindNode("StoryText") as RichTextLabel;
         textEntryBox = FindNode("TextBox") as LineEdit;
@@ -69,7 +69,7 @@ public class LoonyLips : Node2D
 
     private void ShowIntro()
     {
-        strings = SetStrings();
+        SetStringsFromFile("stories.json");
         storyText.Text = strings["intro_text"];
     }
 
@@ -92,18 +92,30 @@ public class LoonyLips : Node2D
         return playerWords.Count == currentStory.prompts.Count;
     }
 
-    private Dictionary<string, string> SetStrings()
+    private void SetStringsFromFile(string localFileName)
     {
         var file = new File();
-        file.Open("stories.json", 1);  // Mode 1 is read only
+        file.Open(localFileName, 1);  // Mode 1 is read only
         string jsonString = file.GetAsText();
+        file.Close();
         var parseResult = JSON.Parse(jsonString);
 
-        // TODO actually get from JSON!
+        if (parseResult.Error != 0)
+        {
+            GD.Print("JSON Parse Error");
+        }
+        else
+        {
+            GD.Print("Strings JSON OK");
+            ReadStrings();
+        }
+    }
+
+    private void ReadStrings()
+    {
         strings["intro_text"] = "Welcome to Loony Lips!\n\nWe're going to tell a story and have a lovely time!\n\n";
-        strings["prompt"] = "Can I have {0} please ?";  // Note difference in syntax
-        strings["again"] = "Again!";  // Note difference in syntax
-        return strings;
+        strings["prompt"] = "Can I have {0} please ?";
+        strings["again"] = "Again!";
     }
 
     private void SetRandomStory()
