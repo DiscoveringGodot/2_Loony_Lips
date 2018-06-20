@@ -90,18 +90,6 @@ public class LoonyLips : Node2D
         return playerWords.Count == currentStory.prompts.Count;
     }
 
-    private void SetStringsFromFile(string localFileName)
-    {
-        var parseResult = GetJSONParseResult(localFileName);
-        var dict = parseResult.Result as Dictionary<System.Object, System.Object>;
-
-        foreach (var entry in dict)
-        {
-            var keyString = entry.Key as string;
-            strings[keyString] = dict[keyString] as string;
-        }
-    }
-
     private JSONParseResult GetJSONParseResult(string localFileName)
     {
         var file = new File();
@@ -123,19 +111,36 @@ public class LoonyLips : Node2D
         }
     }
 
-    // TODO separate function for reading Stores
+    private void SetStringsFromFile(string localFileName)
+    {
+        var parseResult = GetJSONParseResult(localFileName);
+        var dict = parseResult.Result as Dictionary<System.Object, System.Object>;
+
+        foreach (var entry in dict)
+        {
+            var keyString = entry.Key as string;
+            strings[keyString] = dict[keyString] as string;
+        }
+    }
 
     private void SetRandomStory()
     {
-        // TODO actually get from JSON!
-        currentStory.prompts = new List<string>(new string[]
+        var parseResult = GetJSONParseResult("stories.json");
+        var stories = parseResult.Result as Array;
+        
+        Random rnd = new Random();
+        int storyIndex = rnd.Next(0, stories.Length);
+        var randomStory = stories.GetValue(storyIndex) as Dictionary<System.Object, System.Object>;
+        
+        var tempPrompts = new List<string>();
+        var prompts = randomStory["prompt"] as Array;
+        foreach (System.Object o in prompts)
         {
-            "a person's name",
-            "a thing",
-            "a feeling",
-            "another feeling",
-            "some things"
-        });
+            tempPrompts.Add(o as string);
+            GD.Print(o as string);
+        }
+
+        currentStory.prompts = tempPrompts;
         currentStory.story = "Once upon a time {0} ate a {1} and felt very {2}. It was a {3} day for all good {4}.";
     }
 
