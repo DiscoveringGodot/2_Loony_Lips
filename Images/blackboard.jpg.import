@@ -7,10 +7,7 @@ path="res://.import/blackboard.jpg-b56cb65be1bc05544ba7a8f3fda4bdec.stex"
 [deps]
 
 source_file="res://Images/blackboard.jpg"
-source_md5="07761e78e6b3ee3e6c9b7ccc9ad575d4"
-
 dest_files=[ "res://.import/blackboard.jpg-b56cb65be1bc05544ba7a8f3fda4bdec.stex" ]
-dest_md5="efdf8ba2d278482e0947e0de7f6050f7"
 
 [params]
 

@@ -12,7 +12,6 @@ config_version=3
 
 config/name="Loony_Lips"
 run/main_scene="res://Scenes/LoonyLips.tscn"
-config/icon="res://icon.png"
 
 [display]
 
