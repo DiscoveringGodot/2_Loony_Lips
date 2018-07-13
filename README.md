@@ -97,6 +97,7 @@ Create a template system for Loony Lips and pick random stories from the templat
 #### After watching (learning outcomes)…
 At least create a simple backup of your project folder by taking a zip. Optionally setup Git.
 
+
 ### 10 Introducing Visual Studio Code ###
 
 **In this video (objectives)…**
@@ -109,3 +110,17 @@ At least create a simple backup of your project folder by taking a zip. Optional
 **After watching (learning outcomes)…**
 
 Setup and use Visual Studio Code with the Godot extension as an external text editor.
+
+
+### 11 Using Godot Mono For C-Sharp
+
+**In this video (objectives)…**
+
+1. How to install the “Mono” version of Godot
+1. About the version of Mono on your system
+1. Adding our first C# script.
+
+
+**After watching (learning outcomes)…**
+
+Get the Mono version of Godot working so you can write C# code.
