@@ -19,7 +19,7 @@ Here are the lectures of the course for this section...
 
 ### 1 Planning Loony Lips
 #### In this video (objectives)…
-1 Discuss the game we're making 
+1 Discuss the game we're making
 2 1 Discuss the game we're making 2 Examine the features we'll need to create
 
 #### After watching (learning outcomes)…
@@ -27,7 +27,7 @@ Decide if this course is for you!
 
 ### 2 Introducing Arrays
 #### In this video (objectives)…
-Put all of our plugin words into an array 
+Put all of our plugin words into an array
 Put wildcards into our story text Merge the new array into the story
 
 #### After watching (learning outcomes)…
@@ -73,23 +73,26 @@ Allow the player to restart the game once the story's done!
 
 ### 7 Dictionaries - Adding a Story Template
 #### In this video (objectives)…
-1 Create dictionaries 
-2 Nest Dictionaries 
+1 Create dictionaries
+2 Nest Dictionaries
 3 use ''randomize()'' and ''randi()'' to generate random integers
 
 #### After watching (learning outcomes)…
 Create a template system for Loony Lips and pick random stories from the template by unleashing the awesome power of dictionaries.
 
 ### 8 JSON and File
-
 #### In this video (objectives)…
 
 1 Learn how to write JSON files
-
 2 How to open and parse JSON in GDScript
 
+### 9 Using Git With Godot ###
+#### In this video (objectives)… ####
 
+1. What version control is
+1. Why it’s important
+1. What to track, and what not
+1. A reminder about “Lecture Project Changes”
 
 #### After watching (learning outcomes)…
-
-Move everything that isn't code out of your script.  Learn how to create, load and parse JSON files!
+At least create a simple backup of your project folder by taking a zip. Optionally setup Git.
