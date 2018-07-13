@@ -96,3 +96,16 @@ Create a template system for Loony Lips and pick random stories from the templat
 
 #### After watching (learning outcomes)…
 At least create a simple backup of your project folder by taking a zip. Optionally setup Git.
+
+### 10 Introducing Visual Studio Code ###
+
+**In this video (objectives)…**
+
+1. What is Visual Studio Code?
+1. Why would you use it?
+1. How do you install it
+1. What extensions we’ll be using.
+
+**After watching (learning outcomes)…**
+
+Setup and use Visual Studio Code with the Godot extension as an external text editor.
