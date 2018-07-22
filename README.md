@@ -137,3 +137,17 @@ Get the Mono version of Godot working so you can write C# code.
 **After watching (learning outcomes)…**
 
 Find and use nodes in C#.
+
+
+### 13 Wiring Signals In C-Sharp
+
+**In this video (objectives)…**
+
+1. Create a new signal to a C# script
+1. See how to use correct parameters
+1. Refactor our code.
+
+
+**After watching (learning outcomes)…**
+
+Wire Godot signals to a C# method of your choice.

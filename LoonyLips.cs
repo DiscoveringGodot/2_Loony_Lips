@@ -3,25 +3,39 @@ using System;
 
 public class LoonyLips : Node2D
 {
-    // Member variables here, example:
-    // private int a = 2;
-    // private string b = "textvar";
+    // cached references
+    RichTextLabel storyText;
+    LineEdit textEntryBox;
 
     public override void _Ready()
     {
-        GD.Print("Hello from C#");
-
-        var storyText = FindNode("StoryText") as RichTextLabel;
-        storyText.Text = "It worked!";
-
-        var textEntryBox = FindNode("TextBox") as LineEdit;
-        textEntryBox.Text = "I wrote a line of text!";
+        CacheComponents();
+        ShowIntro();
+        // SetRandomStory();
+        // PromptPlayer();
     }
 
-//    public override void _Process(float delta)
-//    {
-//        // Called every frame. Delta is time since last frame.
-//        // Update game logic here.
-//        
-//    }
+    // Start of signals
+    void OnTextEntry(String entry)  
+    {
+        GD.Print("Text entered: " + entry);
+    }
+
+    void OnButtonPressed()
+    {
+        GD.Print("Button pressed");
+    }
+    // End of signals
+
+    void CacheComponents()
+    {
+        storyText = FindNode("StoryText") as RichTextLabel;
+        textEntryBox = FindNode("TextBox") as LineEdit;
+    }
+
+    private void ShowIntro()
+    {
+        storyText.Text = "It worked!";
+        textEntryBox.Text = "I wrote a line of text!";
+    }
 }
