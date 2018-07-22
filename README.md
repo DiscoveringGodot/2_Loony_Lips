@@ -124,3 +124,16 @@ Setup and use Visual Studio Code with the Godot extension as an external text ed
 **After watching (learning outcomes)…**
 
 Get the Mono version of Godot working so you can write C# code.
+
+
+### 12 Finding Nodes In C-Sharp
+
+**In this video (objectives)…**
+
+1. Use `FindNode()` in Godot
+1. How to cast to the right type
+
+
+**After watching (learning outcomes)…**
+
+Find and use nodes in C#.

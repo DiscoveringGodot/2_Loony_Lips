@@ -10,7 +10,12 @@ public class LoonyLips : Node2D
     public override void _Ready()
     {
         GD.Print("Hello from C#");
-        
+
+        var storyText = FindNode("StoryText") as RichTextLabel;
+        storyText.Text = "It worked!";
+
+        var textEntryBox = FindNode("TextBox") as LineEdit;
+        textEntryBox.Text = "I wrote a line of text!";
     }
 
 //    public override void _Process(float delta)
