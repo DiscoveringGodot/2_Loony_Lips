@@ -151,3 +151,17 @@ Find and use nodes in C#.
 **After watching (learning outcomes)…**
 
 Wire Godot signals to a C# method of your choice.
+
+
+### 14 Reading JSON In C# ###
+
+**In this video (objectives)…**
+
+1. Open and read files in C#
+2. Use `JSON.Parse()` on the file text
+3. Protect against parsing errors.
+
+
+**After watching (learning outcomes)…**
+
+Create a `JSONParseResult` object from a text file using C# in Godot Engine.

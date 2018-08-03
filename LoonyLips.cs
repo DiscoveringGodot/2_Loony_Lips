@@ -11,6 +11,8 @@ public class LoonyLips : Node2D
     {
         CacheComponents();
         ShowIntro();
+
+        var result = GetJSONParseResult("stories.json");  // TODO remove
         // SetRandomStory();
         // PromptPlayer();
     }
@@ -37,5 +39,26 @@ public class LoonyLips : Node2D
     {
         storyText.Text = "It worked!";
         textEntryBox.Text = "I wrote a line of text!";
+    }
+
+    private JSONParseResult GetJSONParseResult(string localFileName)
+    {
+        var file = new File();
+        file.Open(localFileName, 1);  // Mode 1 is read only
+        var text = file.GetAsText();
+        file.Close();
+
+        var parseResult = JSON.Parse(text);
+
+        if (parseResult.Error != 0)
+        {
+            GD.Print(localFileName + " parse error");
+            return null;
+        }
+        else
+        {
+            GD.Print(localFileName + " read OK");
+            return parseResult;
+        }
     }
 }
