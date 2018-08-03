@@ -165,3 +165,17 @@ Wire Godot signals to a C# method of your choice.
 **After watching (learning outcomes)…**
 
 Create a `JSONParseResult` object from a text file using C# in Godot Engine.
+
+
+### 15 Using a JSONParseResult ###
+
+**In this video (objectives)…**
+
+1. Use `.Result` and cast to an `Array`
+2. See how to cast to a dictionary of system objects
+3. Get a single story text at random from our file.
+
+
+**After watching (learning outcomes)…**
+
+Use a `JSONParseResult` in C# withing Godot, and understand how to deal with types.

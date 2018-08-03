@@ -1,8 +1,18 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+
+struct Story
+{
+    public List<String> prompts;
+    public String story;
+}
 
 public class LoonyLips : Node2D
 {
+    // private instance variable for state
+    Story currentStory;
+
     // cached references
     RichTextLabel storyText;
     LineEdit textEntryBox;
@@ -11,9 +21,7 @@ public class LoonyLips : Node2D
     {
         CacheComponents();
         ShowIntro();
-
-        var result = GetJSONParseResult("stories.json");  // TODO remove
-        // SetRandomStory();
+        SetRandomStory();
         // PromptPlayer();
     }
 
@@ -39,6 +47,20 @@ public class LoonyLips : Node2D
     {
         storyText.Text = "It worked!";
         textEntryBox.Text = "I wrote a line of text!";
+    }
+
+    private void SetRandomStory()
+    {
+        var parseResult = GetJSONParseResult("stories.json");
+        var stories = parseResult.Result as Array;
+
+        Random rnd = new Random();
+        var storyIndex = rnd.Next(0, stories.Length);
+        var randomStory = stories.GetValue(storyIndex) as Dictionary<System.Object, System.Object>;
+        
+        // TODO currentStory.prompts =  GetPrompts(randomStory)
+        currentStory.story = randomStory["story"] as string;
+        GD.Print(currentStory.story);
     }
 
     private JSONParseResult GetJSONParseResult(string localFileName)

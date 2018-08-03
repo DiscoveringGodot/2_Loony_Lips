@@ -16,6 +16,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="LoonyLips" type="Node2D" index="0"]
 
+position = Vector2( 3, 0 )
 script = ExtResource( 1 )
 
 [node name="Blackboard" type="TextureRect" parent="." index="0"]
