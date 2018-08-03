@@ -13,6 +13,8 @@ public class LoonyLips : Node2D
     // private instance variable for state
     Story currentStory;
 
+    Dictionary<String, String> strings = new Dictionary<string, string>();
+
     // cached references
     RichTextLabel storyText;
     LineEdit textEntryBox;
@@ -58,12 +60,34 @@ public class LoonyLips : Node2D
         var storyIndex = rnd.Next(0, stories.Length);
         var randomStory = stories.GetValue(storyIndex) as Dictionary<System.Object, System.Object>;
         
-        // TODO currentStory.prompts =  GetPrompts(randomStory)
-        currentStory.story = randomStory["story"] as string;
+        currentStory.prompts = GetPrompts(randomStory);
+        currentStory.story = randomStory["story"] as String;
         GD.Print(currentStory.story);
     }
 
-    private JSONParseResult GetJSONParseResult(string localFileName)
+    private List<String> GetPrompts(Dictionary<System.Object, System.Object> story)
+    {
+        var promptsList = new List<String>();
+        var promptObjects = story["prompt"] as Array;
+        foreach (System.Object o in promptObjects)
+        {
+            promptsList.Add(o as String);
+        }
+        return promptsList;
+    }
+
+    private void SetStringsFromFile(string localFileName)
+    {
+        var parseResult = GetJSONParseResult(localFileName);
+        var dict = parseResult.Result as Dictionary<System.Object, System.Object>;
+        foreach (var entry in dict)
+        {
+            var keyString = entry.Key as String;
+            strings[keyString] = dict[keyString] as string;
+        }
+    }
+
+    private JSONParseResult GetJSONParseResult(String localFileName)
     {
         var file = new File();
         file.Open(localFileName, 1);  // Mode 1 is read only

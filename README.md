@@ -179,3 +179,17 @@ Create a `JSONParseResult` object from a text file using C# in Godot Engine.
 **After watching (learning outcomes)…**
 
 Use a `JSONParseResult` in C# withing Godot, and understand how to deal with types.
+
+
+### 16 Getting Our Prompts and Strings ###
+
+**In this video (objectives)…**
+
+1. Iterate over `System.Object` items
+2. Cast to desired type at the last minute
+3. Finish our two helper functions.
+
+
+**After watching (learning outcomes)…**
+
+Turn non-specific `System.Object` arrays from JSON results into concrete types.
