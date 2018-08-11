@@ -111,6 +111,14 @@ At least create a simple backup of your project folder by taking a zip. Optional
 
 Setup and use Visual Studio Code with the Godot extension as an external text editor.
 
+### 10b Instructor Hangout 1 ###
+
+**In this video (objectives)…**
+
+1. Join Ben and Yann as they answer some of the common questions on the course so far
+**After watching (learning outcomes)…**
+Hangout with Ben and Yann as we get ready for the next section!
+
 
 ### 11 Using Godot Mono For C-Sharp
 
