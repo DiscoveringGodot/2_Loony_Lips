@@ -80,16 +80,21 @@ Allow the player to restart the game once the story's done!
 #### After watching (learning outcomes)…
 Create a template system for Loony Lips and pick random stories from the template by unleashing the awesome power of dictionaries.
 
-### 8 JSON and File
+### 8 JSON and File ### 
 
 #### In this video (objectives)…
 
 1 Learn how to write JSON files
-
 2 How to open and parse JSON in GDScript
-
-
 
 #### After watching (learning outcomes)…
 
 Move everything that isn't code out of your script.  Learn how to create, load and parse JSON files!
+
+
+### 9 Converting Loony Lips To C# ###
+
+1. Alpha C# conversion at end of course
+2. Expect new C# content once Godot 3.1 ships.
+
+Explain where to get C# alpha content, and understand that we're waiting for Godot 3.1 before creating more.
